@@ -35,8 +35,8 @@
     .section-head { display: flex; align-items: baseline; gap: 13px; margin-bottom: 22px; }
     .section-number { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .06em; }
     h2 { margin: 0; font-size: 23px; line-height: 1.6; letter-spacing: .02em; }
-    h3 { margin: 0 0 6px; font-size: 17px; line-height: 1.6; }
-    p { margin: 0 0 12px; }
+    h3 { margin: 0 0 8px; font-size: 17px; line-height: 1.6; }
+    p { margin: 0 0 16px; }
     p:last-child { margin-bottom: 0; }
     .basics { display: grid; grid-template-columns: 1.45fr 1fr; gap: 36px; }
     .explanation { padding: 25px 28px; border: 1px solid var(--line); border-radius: 9px; }
@@ -55,10 +55,16 @@
     .play .section-head { min-height: 37px; }
     .figure { margin: 24px 0; padding: 28px; border: 1px solid var(--line); background: white; border-radius: 9px; }
     .figure-label { margin: 0 0 17px; font-size: 12px; font-weight: 700; color: var(--muted); }
-    .insertion { display: grid; grid-template-columns: 28px 1fr 28px 1fr 28px 1fr 28px; align-items: center; gap: 12px; }
-    .slot { display: grid; place-items: center; align-self: stretch; border-inline: 1px dashed var(--line); font-size: 18px; color: var(--muted); }
-    .slot.correct { color: var(--green); border-color: var(--green); font-weight: 700; background: #eef4ec; }
-    .number-card { padding: 22px 6px; border: 1px solid #ced3c7; border-radius: 7px; background: #f7f8f3; text-align: center; font-size: 22px; font-weight: 750; line-height: 1.4; font-variant-numeric: tabular-nums; }
+    .insertion { display: grid; grid-template-columns: 1fr 2.1fr 1fr 2.1fr 1fr 2.1fr 1fr; align-items: start; gap: 9px; }
+    .slot { display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 20px; color: #68727d; line-height: 1.4; }
+    .slot-number { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; font-size: 24px; font-weight: 600; }
+    .slot.correct .slot-number { color: #292d28; background: #ffd000; }
+    .slot-label { font-size: 15px; white-space: nowrap; }
+    .number-card { padding: 13px 6px; border: 1.5px solid #a5afbc; border-radius: 7px; background: #f6f7f9; text-align: center; font-size: 30px; font-weight: 750; line-height: 1.3; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .card-label { display: block; margin-bottom: 3px; font-size: 21px; color: #414850; }
+    .order-direction { display: flex; align-items: center; gap: 16px; margin-top: 17px; color: #68727d; font-size: 15px; line-height: 1.5; }
+    .order-direction span { white-space: nowrap; }
+    .order-direction svg { flex: 1; min-width: 0; height: 20px; }
     .new-card { width: 145px; margin: 22px auto 0; padding: 15px 10px; border: 3px solid var(--yellow); background: #fffaf0; }
     .new-card small { display: block; font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 5px; }
     .figure figcaption { margin-top: 18px; font-size: 13px; text-align: center; }
@@ -96,9 +102,14 @@
       .card-face { margin-top: 14px; }
       .steps li { column-gap: 12px; }
       .figure { padding: 20px 12px; }
-      .insertion { grid-template-columns: 20px 1fr 20px 1fr 20px 1fr 20px; gap: 5px; }
-      .slot { font-size: 16px; }
-      .number-card { font-size: 15px; padding: 21px 3px; }
+      .insertion { grid-template-columns: minmax(22px, .6fr) minmax(0, 1.5fr) minmax(22px, .6fr) minmax(0, 1.5fr) minmax(22px, .6fr) minmax(0, 1.5fr) minmax(22px, .6fr); gap: 3px; }
+      .slot { gap: 5px; padding-top: 10px; }
+      .slot-number { width: 100%; max-width: 26px; height: auto; aspect-ratio: 1; font-size: 18px; }
+      .slot-label { font-size: 11px; text-align: center; }
+      .slot-label span { display: block; }
+      .number-card { font-size: clamp(12px, 3.5vw, 22px); padding: 12px 2px; }
+      .card-label { font-size: 16px; margin-bottom: 5px; }
+      .order-direction { gap: 8px; margin-top: 12px; font-size: 12px; }
       .new-card { width: 118px; padding: 11px 6px; font-size: 20px; }
       .figure figcaption { text-align: left; padding-inline: 6px; }
       .results th, .results td { padding: 15px 9px; }
@@ -135,7 +146,10 @@
     <div class="hero wrap">
       <p class="eyebrow">チームで相談する協力ゲーム</p>
       <h1>フェルミ推定思考<span class="subtitle">ルールブック</span></h1>
-      <p class="intro">チームで相談し、カードの答えの数字を小さい順に並べる協力ゲームです。<br>3回間違う前に、10枚の列を完成させれば成功です。</p>
+      <div class="intro">
+        <p>チームで相談し、カードの答えの数字を小さい順に並べる協力ゲームです。</p>
+        <p>3回間違う前に、10枚の列を完成させれば成功です。</p>
+      </div>
       <dl class="goal">
         <div><dt>成功の目標</dt><dd><strong>10</strong>枚の列を完成</dd></div>
         <div><dt>失敗の条件</dt><dd><strong>3</strong>回間違えたら終了</dd></div>
@@ -160,7 +174,8 @@
       </section>
       <section class="prepare" id="prepare" aria-labelledby="prepare-title">
         <h2 id="prepare-title">準備</h2>
-        <p>カードを表にして、山札を置きます。表は、答えの数字が書かれていない黄色い縁の面です。</p>
+        <p>カードを表にして、山札を置きます。</p>
+        <p>表は、答えの数字が書かれていない黄色い縁の面です。</p>
         <span class="card-face">黄色い縁の面 ＝ 表</span>
       </section>
     </div>
@@ -170,30 +185,41 @@
         <ol class="steps">
           <li><div><h3>3枚引く</h3><p>表のまま、お題を全員で確認します。</p></div></li>
           <li><div><h3>相談して並べる</h3><p>それぞれの数字をフェルミ推定し、小さい順に並べます。</p></div></li>
-          <li><div><h3>裏返して確認する</h3><p>3枚の数字を公開し、順番が正しいか確認します。違っていたら、正しい順に並べ替えます。</p></div></li>
+          <li><div><h3>裏返して確認する</h3><p>3枚の数字を公開し、順番が正しいか確認します。</p><p>違っていたら、正しい順に並べ替えます。</p></div></li>
         </ol>
       </section>
       <section class="section" id="next-cards" aria-labelledby="next-title">
         <div class="section-head"><span class="section-number" aria-hidden="true">02</span><h2 id="next-title">4枚目からの進め方</h2></div>
         <ol class="steps">
           <li><div><h3>1枚引く</h3><p>新しいカードを1枚引き、表のままお題を確認します。</p></div></li>
-          <li><div><h3>置く場所を相談する</h3><p>数字をフェルミ推定し、列のどこに入るか話し合います。左端、カードの間、右端も候補です。</p></div></li>
-          <li><div><h3>全員で同時に指差す</h3><p>「いっせーの、せ」の合図で置きたい場所を指差し、最も多く指された場所に置きます。</p></div></li>
-          <li><div><h3>裏返して判定する</h3><p>置いた後に裏返し、数字を公開します。<br>列が小さい順なら正解、順番が違っていれば間違いです。</p></div></li>
-          <li><div><h3>次のカードへ進む</h3><p>間違えた回数を数えます。終了条件に達していなければ、また1枚引いて繰り返します。</p></div></li>
+          <li><div><h3>置く場所を相談する</h3><p>数字をフェルミ推定し、列のどこに入るか話し合います。</p><p>左端、カードの間、右端も候補です。</p></div></li>
+          <li><div><h3>全員で同時に指差す</h3><p>「いっせーの、せ」の合図で、置きたい場所を全員で同時に指差します。</p><p>最も多く指された場所に置きます。</p></div></li>
+          <li><div><h3>裏返して判定する</h3><p>置いた後に裏返し、数字を公開します。</p><p>列が小さい順なら正解、順番が違っていれば間違いです。</p></div></li>
+          <li><div><h3>次のカードへ進む</h3><p>間違えた回数を数えます。</p><p>終了条件に達していなければ、また1枚引いて繰り返します。</p></div></li>
         </ol>
       </section>
     </div>
     <section class="section" id="placement" aria-labelledby="placement-title">
       <div class="section-head"><span class="section-number" aria-hidden="true">03</span><h2 id="placement-title">置く場所の例</h2></div>
-      <p>3枚並んでいるとき、置ける場所は4か所あります。<br>投票ではカードそのものではなく、置く場所を指差します。</p>
+      <p>3枚並んでいるとき、置ける場所は4か所あります。</p>
+      <p>投票ではカードそのものではなく、置く場所を指差します。</p>
       <figure class="figure">
-        <p class="figure-label">例：1,000、5,000、20,000が並んでいるとき</p>
-        <div class="insertion" role="img" aria-label="①、1,000、②、5,000、③、20,000、④の順に並んでいます。8,000を入れる正しい場所は、5,000と20,000の間の③です。">
-          <span class="slot">①</span><span class="number-card">1,000</span>
-          <span class="slot">②</span><span class="number-card">5,000</span>
-          <span class="slot correct">③</span><span class="number-card">20,000</span>
-          <span class="slot">④</span>
+        <p class="figure-label">例：A、B、Cの3枚が並んでいるとき</p>
+        <div class="placement-diagram" role="img" aria-label="カードAは1,000、Bは5,000、Cは20,000で、左から小さい順に並んでいます。置く場所は、Aの左が①、AとBの間が②、BとCの間が③、Cの右が④です。8,000を置く正しい場所の③を黄色で示しています。">
+          <div class="insertion" aria-hidden="true">
+            <div class="slot"><span class="slot-number">①</span><span class="slot-label">置く<span>場所</span></span></div>
+            <div class="number-card"><span class="card-label">A</span>1,000</div>
+            <div class="slot"><span class="slot-number">②</span><span class="slot-label">置く<span>場所</span></span></div>
+            <div class="number-card"><span class="card-label">B</span>5,000</div>
+            <div class="slot correct"><span class="slot-number">③</span><span class="slot-label">置く<span>場所</span></span></div>
+            <div class="number-card"><span class="card-label">C</span>20,000</div>
+            <div class="slot"><span class="slot-number">④</span><span class="slot-label">置く<span>場所</span></span></div>
+          </div>
+          <div class="order-direction" aria-hidden="true">
+            <span>小さい</span>
+            <svg viewBox="0 0 800 20" preserveAspectRatio="none"><path d="M0 10H786" stroke="#8b97a4" stroke-width="1.5"/><path d="M784 3L800 10L784 17Z" fill="#8b97a4"/></svg>
+            <span>大きい</span>
+          </div>
         </div>
         <div class="number-card new-card"><small>新しいカードの数字</small>8,000</div>
         <figcaption>新しいカードの数字が8,000なら、正しい位置は③です。</figcaption>
@@ -211,23 +237,30 @@
       </table>
       <div class="compare">
         <h3>比較する数字</h3>
-        <p>人数・面積・距離などの単位が違っても、カードに書かれた答えの数値を比べます。<br>判定には、カードに記載された数字を使います。</p>
+        <p>人数・面積・距離などの単位が違っても、カードに書かれた答えの数値を比べます。</p>
+        <p>判定には、カードに記載された数字を使います。</p>
       </div>
     </section>
     <section class="optional" id="optional" aria-labelledby="optional-title">
       <div class="section-head"><span class="section-number" aria-hidden="true">05</span><h2 id="optional-title">補足ルール案</h2></div>
-      <p class="optional-intro">以下は、細かい場面で迷わず遊ぶための補足案です。<br>遊ぶ前に、チームで採用する扱いをそろえてください。</p>
+      <div class="optional-intro">
+        <p>以下は、細かい場面で迷わず遊ぶための補足案です。</p>
+        <p>遊ぶ前に、チームで採用する扱いをそろえてください。</p>
+      </div>
       <div class="optional-rule">
         <h3>最初の3枚の判定</h3>
-        <p>最初の3枚も、順番が違っていたら間違い1回と数えます。何か所ずれていても、この判定は1回の間違いです。並べ直した3枚も、目標の10枚に数えます。</p>
+        <p>最初の3枚も、順番が違っていたら間違い1回と数えます。何か所ずれていても、この判定は1回の間違いです。</p>
+        <p>並べ直した3枚も、目標の10枚に数えます。</p>
       </div>
       <div class="optional-rule">
         <h3>途中で間違えたカード</h3>
-        <p>間違えたら、新しいカードを正しい位置へ移します。捨てずに列へ残し、目標の10枚に数えます。<br>一度裏返したカードは、数字のある面を上にしたままにします。</p>
+        <p>間違えたら、新しいカードを正しい位置へ移します。捨てずに列へ残し、目標の10枚に数えます。</p>
+        <p>一度裏返したカードは、数字のある面を上にしたままにします。</p>
       </div>
       <div class="optional-rule">
         <h3>最多票の場所が複数あるとき</h3>
-        <p>最多票で並んだ場所だけを候補にして、もう一度相談し、再投票します。<br>再投票でも同票なら、同票の場所から抽選で1か所を決めます。</p>
+        <p>最多票で並んだ場所だけを候補にして、もう一度相談し、再投票します。</p>
+        <p>再投票でも同票なら、同票の場所から抽選で1か所を決めます。</p>
       </div>
       <div class="optional-rule">
         <h3>10枚目で3回目の間違いになったとき</h3>
