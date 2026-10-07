@@ -84,6 +84,10 @@
     .optional-rule:last-child { padding-bottom: 0; }
     .optional-rule p { font-size: 14px; }
     footer { border-top: 1px solid var(--line); padding: 23px 0 32px; font-size: 12px; color: var(--muted); }
+    .designer-credit { margin-top: 20px; }
+    .designer-credit p { margin-bottom: 4px; }
+    .designer-credit p:last-child { margin-bottom: 0; }
+    .designer-name { font-size: 16px; font-weight: 700; color: var(--ink); }
     @media (max-width: 720px) {
       .wrap { width: calc(100% - 40px); }
       .masthead { padding: 20px 0 16px; }
@@ -122,7 +126,7 @@
     @media print {
       body { background: white; font-size: 11pt; line-height: 1.6; }
       .wrap { width: 100%; max-width: none; }
-      .masthead, .contents, footer, .skip { display: none; }
+      .masthead, .contents, .skip { display: none; }
       .hero { padding: 0 0 20px; }
       h1 { font-size: 28pt; }
       .intro { font-size: 11pt; margin-top: 15px; }
@@ -135,6 +139,7 @@
       .optional { margin-top: 24px; padding: 20px; }
       h2, h3 { break-after: avoid; }
       main { padding-bottom: 0; }
+      footer { margin-top: 24px; padding: 16px 0 0; break-inside: avoid; }
       * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     }
   </style>
@@ -268,6 +273,15 @@
       </div>
     </section>
   </main>
-  <footer><div class="wrap">フェルミ推定思考 · ルールブック</div></footer>
+  <footer>
+    <div class="wrap">
+      <p>フェルミ推定思考 · ルールブック</p>
+      <div class="designer-credit">
+        <p>ゲームデザイナー</p>
+        <p class="designer-name">中村 健吾</p>
+        <p><a href="https://x.com/keng0o_" target="_blank" rel="noopener noreferrer">@keng0o_（X）</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
