@@ -11,6 +11,8 @@
 ## ファイル構成
 
 - `fermi/index.html`: ルールブック本文と表示スタイル。スマートフォン表示と印刷に対応します。
+- `fermi/assets/card-front.png`: 「日本の書店の店舗数」をお題にした表カードの見本画像。
+- `fermi/assets/card-deck.svg`: 表カードの見本画像とカードの重なりで描いた山札の図。
 - `index.html`: サイトのトップからルールブックへ移動するページ。
 - `.nojekyll`: HTMLをJekyllで変換せず、そのまま公開するためのファイル。
 
