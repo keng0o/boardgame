@@ -61,8 +61,8 @@ h2 { margin: 0; font-size: 29px; line-height: 1.5; font-weight: 750; letter-spac
 h3 { margin: 0 0 10px; font-size: 20px; line-height: 1.6; font-weight: 700; }
 .prepare-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 26px; align-items: center; }
 .prepare-copy { max-width: 430px; }
-.deck-figure { margin: 0; padding: 12px 0 10px; border-radius: 12px; background: #f2f1e9; text-align: center; }
-.deck-figure img { display: block; width: min(100%, 290px); height: auto; margin: 0 auto; }
+.front-figure { margin: 0; padding: 20px 0; border-radius: 12px; background: #f2f1e9; text-align: center; }
+.front-figure img { display: block; width: min(100% - 32px, 160px); height: auto; margin: 0 auto; border-radius: 3px; box-shadow: 0 3px 9px #24251f18; }
 .explanation { margin-top: 30px; padding: 26px 30px; border-radius: 12px; background: var(--white); border: 1px solid var(--line); }
 .explanation h2 { margin-bottom: 16px; font-size: 20px; }
 .explanation p { font-size: 17px; }
@@ -86,13 +86,15 @@ h3 { margin: 0 0 10px; font-size: 20px; line-height: 1.6; font-weight: 700; }
 .steps-initial p { font-size: 17px; }
 .figure { margin: 28px 0 19px; padding: 29px 25px 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
 .figure-label { margin-bottom: 24px; color: var(--muted); font-size: 14px; font-weight: 600; }
-.insertion { display: grid; grid-template-columns: .72fr 1.55fr .72fr 1.55fr .72fr 1.55fr .72fr; gap: 7px; align-items: start; }
-.slot { display: flex; flex-direction: column; align-items: center; gap: 7px; padding-top: 15px; color: var(--muted); line-height: 1.5; }
+.insertion { display: grid; grid-template-columns: .72fr 1.55fr .72fr 1.55fr .72fr 1.55fr .72fr; gap: 7px; align-items: center; }
+.slot { display: flex; flex-direction: column; align-items: center; gap: 7px; color: var(--muted); line-height: 1.5; }
 .slot-number { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; font-size: 25px; font-weight: 600; }
 .slot.correct .slot-number { color: var(--ink); background: var(--yellow); }
 .slot-label { font-size: 13px; text-align: center; white-space: nowrap; }
 .number-card { min-width: 0; padding: 16px 4px 18px; border: 1.5px solid #b1b6a8; border-radius: 8px; background: #f7f8f3; text-align: center; font-size: clamp(22px, 2.2vw, 29px); line-height: 1.3; font-weight: 750; font-variant-numeric: tabular-nums; white-space: nowrap; overflow-wrap: normal; }
 .card-label { display: block; margin-bottom: 6px; font-size: 18px; color: var(--muted); }
+.insertion .number-card { position: relative; display: grid; place-content: center; width: 100%; max-width: 145px; aspect-ratio: 222 / 314; justify-self: center; padding: 25px 3px; background: var(--white); border-color: #b8bbae; border-radius: 10px; box-shadow: 0 3px 0 #dedfd5, 0 6px 12px #24251f0a; }
+.insertion .card-label { position: absolute; top: 17px; left: 0; right: 0; margin: 0; font-size: 16px; font-weight: 500; }
 .order-direction { display: flex; align-items: center; gap: 13px; margin-top: 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .order-direction span { white-space: nowrap; }
 .order-direction svg { flex: 1; min-width: 0; height: 20px; }
@@ -182,8 +184,8 @@ footer .wrap > p { margin: 0; }
   h2 { font-size: 24px; }
   h3, .steps-initial h3 { font-size: 19px; }
   .prepare-layout { display: block; }
-  .deck-figure { margin-top: 22px; padding-top: 2px; }
-  .deck-figure img { width: min(100%, 300px); }
+  .front-figure { margin-top: 22px; padding-block: 20px; }
+  .front-figure img { width: min(100% - 32px, 176px); }
   .explanation { margin-top: 22px; padding: 22px 20px; }
   .explanation h2 { font-size: 19px; }
   .formula { padding: 13px 10px; font-size: 20px; }
@@ -193,12 +195,14 @@ footer .wrap > p { margin: 0; }
   .figure { margin-top: 24px; padding: 21px 8px 23px; }
   .figure-label { padding-inline: 8px; margin-bottom: 22px; font-size: 12px; }
   .insertion { grid-template-columns: minmax(24px, .65fr) minmax(0, 1.55fr) minmax(24px, .65fr) minmax(0, 1.55fr) minmax(24px, .65fr) minmax(0, 1.55fr) minmax(24px, .65fr); gap: 2px; }
-  .slot { gap: 6px; padding-top: 11px; }
+  .slot { gap: 6px; }
   .slot-number { width: 26px; height: 26px; font-size: 20px; }
   .slot-label { font-size: 11px; line-height: 1.5; }
   .slot-label span { display: block; }
   .number-card { padding: 13px 1px; font-size: clamp(14px, 4.05vw, 24px); border-radius: 5px; }
   .card-label { font-size: 14px; margin-bottom: 6px; }
+  .insertion .number-card { padding: 16px 1px; border-radius: 6px; }
+  .insertion .card-label { top: 8px; font-size: 12px; }
   .order-direction { gap: 8px; margin-top: 16px; font-size: 12px; }
   .new-card { width: 154px; margin-top: 23px; padding: 14px 6px; font-size: 28px; border-radius: 8px; }
   .figure figcaption { margin-top: 18px; padding-inline: 10px; text-align: left; font-size: 16px; }
@@ -242,7 +246,7 @@ footer .wrap > p { margin: 0; }
   h2 { font-size: 17pt; }
   h3, .steps-initial h3 { font-size: 12pt; }
   .prepare-layout { display: grid; grid-template-columns: 1fr 220px; }
-  .deck-figure { margin: 0; }
+  .front-figure { margin: 0; }
   .explanation { margin-top: 16px; padding: 16px 20px; }
   .explanation h2 { font-size: 12pt; }
   .explanation p, .steps p, .steps-initial p, .compare p, .optional-intro, .optional-rule p { font-size: 11pt; }
@@ -262,7 +266,7 @@ footer .wrap > p { margin: 0; }
   .compare { padding: 16px 20px; }
   .optional-rule { padding-block: 15px; }
   h2, h3 { break-after: avoid; }
-  .explanation, .figure, .deck-figure, .results tr, .compare, .optional-rule { break-inside: avoid; }
+  .explanation, .figure, .front-figure, .results tr, .compare, .optional-rule { break-inside: avoid; }
   footer { margin-top: 22px; padding-block: 18px 0; background: var(--white); break-inside: avoid; }
   footer .wrap { display: flex; }
   .designer-credit { margin: 0; }

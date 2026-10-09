@@ -13,7 +13,7 @@
 - `fermi/index.html`: ルールブック本文、配置図、目次リンク。
 - `fermi/styles.css`: 配色、文字、レイアウトの表示スタイル。スマートフォン表示と印刷に対応します。
 - `fermi/assets/card-front.png`: 「日本の書店の店舗数」をお題にした表カードの見本画像。
-- `fermi/assets/card-deck.svg`: 表カードの見本画像とカードの重なりで描いた山札の図。
+- `fermi/assets/card-deck.svg`: 山札の図の旧素材。現在のページでは使用しません。
 - `index.html`: サイトのトップからルールブックへ移動するページ。
 - `.nojekyll`: HTMLをJekyllで変換せず、そのまま公開するためのファイル。
 
